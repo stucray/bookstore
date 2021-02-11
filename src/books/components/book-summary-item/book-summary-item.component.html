@@ -3,12 +3,14 @@
     <img src="{{ book.smallThumbnail }}" />
   </div>
   <div class="book-item-title">
-    {{ book.title }}
+    <p class="title-paragraph">{{ book.title }}</p>
     <div class="book-author">
       <a href="#">{{ book.authors }}</a>
     </div>
   </div>
   <div class="book-item-description">
-    {{ book.description }}
+    <p>
+      {{ book.description }}
+    </p>
   </div>
 </div>

@@ -1,8 +1,21 @@
 .book-summary-list {
   //box-shadow: 0px 5px 8px 0 rgba(0, 0, 0, 0.15);
   //height: 100%;
-  // display: grid;
+  max-width: 100%;
+  display: grid;
 
-  // grid-template-columns: repeat(2, 1fr);
-  // gap: 1rem;
+  grid-template-columns: minmax(300px, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .book-summary-list {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .book-summary-list {
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+  }
 }

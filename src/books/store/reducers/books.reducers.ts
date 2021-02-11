@@ -1,43 +1,30 @@
-import {
-  Action,
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-  on,
-} from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+
+import * as fromRoot from '../../../app/store';
 import * as BookActions from '../actions/books.actions';
 import { Book } from '../../models/book.model';
 
 export const booksFeatureKey = 'books';
 
-export interface State {
+export interface State extends EntityState<Book> {
   loading: boolean;
-  books: Book[];
 }
 
-export const initialState: State = {
-  loading: true,
-  books: [],
-};
+export const adapter: EntityAdapter<Book> = createEntityAdapter<Book>();
+
+export const initialState: State = adapter.getInitialState({
+  loading: false,
+});
 
 const bookReducer = createReducer(
   initialState,
-  on(BookActions.loadSuccess, (state, { books }) => ({
-    loading: false,
-    books,
-  }))
+  on(BookActions.loadSuccess, (state, action) =>
+    adapter.setAll(action.books, state)
+  )
 );
 
 export function reducers(state: State | undefined, action: Action) {
   return bookReducer(state, action);
 }
-
-export const selectBookState = createFeatureSelector<State>('books');
-
-export const selectAllBooks = createSelector(
-  selectBookState,
-  (state: State) => state.books
-);
-
-export const selectLoading = (state: State) => state.loading;

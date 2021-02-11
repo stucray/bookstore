@@ -19,8 +19,9 @@ import { CustomSerializer } from './store/reducers/custom-route-serializer';
   declarations: [AppComponent, MainHeaderComponent, NavbarComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BooksModule,
+    AppRoutingModule,
+
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -6,6 +6,8 @@ import { Book } from '../../models/book.model';
 
 import * as fromBooks from '../../store/reducers/books.reducers';
 
+import { selectAllBooks } from '../../store/selectors/books.selectors';
+
 @Component({
   selector: 'app-book-summary-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +18,7 @@ export class BookSummaryContainerComponent implements OnInit {
   books$: Observable<Book[]> | null;
 
   constructor(private store: Store<fromBooks.State>) {
-    this.books$ = store.select(fromBooks.selectAllBooks);
+    this.books$ = store.select(selectAllBooks);
   }
 
   ngOnInit(): void {
