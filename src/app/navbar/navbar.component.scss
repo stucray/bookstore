@@ -1,0 +1,23 @@
+nav {
+  background: no-repeat;
+  color: white;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+li {
+  margin-left: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: black;
+  font-weight: 800;
+}

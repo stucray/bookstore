@@ -1,0 +1,50 @@
+.book-summary-item {
+  display: grid;
+
+  margin-bottom: 0.75rem;
+  padding: 5px;
+  height: 250px;
+
+  background-color: rgba(210, 210, 210, 0.2);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  //align-content: center;
+
+  grid-template-columns: 175px 1fr;
+  grid-template-rows: 75px auto;
+}
+
+.book-item-thumbnail {
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+img {
+  max-height: 230px;
+}
+
+.book-item-title {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  font-weight: 700;
+  font-size: 1.3em;
+  align-self: flex-start;
+  justify-self: flex-start;
+}
+
+.book-author {
+  font-size: 0.85rem;
+  font-weight: normal;
+  padding-top: 5px;
+}
+
+.book-item-description {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  //   max-height: 100%;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: rgba(50, 50, 50, 0.85);
+}
