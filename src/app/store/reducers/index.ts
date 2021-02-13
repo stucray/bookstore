@@ -1,6 +1,6 @@
 import { Params } from '@angular/router';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
-import { ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 import { RouterStateUrl } from './custom-route-serializer';
 
 export interface State {
@@ -10,3 +10,7 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   router: routerReducer,
 };
+
+export const getRouterState = createFeatureSelector<
+  RouterReducerState<RouterStateUrl>
+>('router');

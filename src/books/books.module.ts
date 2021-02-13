@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewBookDetailsPageComponent } from './containers/view-book-details-page/view-book-details-page.component';
 import { ViewBookDetailsComponent } from './components/view-book-details/view-book-details.component';
 import { BooksRoutingModule } from './books-routing.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BooksRoutingModule } from './books-routing.module';
     BookSummaryHeaderComponent,
     ViewBookDetailsPageComponent,
     ViewBookDetailsComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

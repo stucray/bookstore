@@ -7,3 +7,8 @@ export const loadSuccess = createAction(
   '[Book] Load Books Success',
   props<{ books: Book[] }>()
 );
+
+export const bookSelected = createAction(
+  '[Book] Book Selected',
+  props<{ bookId: string }>()
+);

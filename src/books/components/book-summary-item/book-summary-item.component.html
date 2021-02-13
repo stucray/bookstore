@@ -1,7 +1,10 @@
-<div class="book-summary-item">
+<div class="book-summary-item" (click)="onBookSelected(book)">
   <div class="book-item-thumbnail">
+    <!-- <a href="books/{{ book.id }}"> -->
     <img src="{{ book.smallThumbnail }}" />
+    <!-- </a> -->
   </div>
+
   <div class="book-item-title">
     <p class="title-paragraph">{{ book.title }}</p>
     <div class="book-author">

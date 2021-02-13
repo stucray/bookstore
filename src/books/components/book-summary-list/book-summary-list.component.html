@@ -2,5 +2,6 @@
   <app-book-summary-item
     *ngFor="let book of books"
     [book]="book"
+    (bookSelectedEvent)="onBookSelected($event)"
   ></app-book-summary-item>
 </div>

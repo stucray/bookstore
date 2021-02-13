@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { loadRequest } from '../../store/actions/books.actions';
+
+import { loadRequest, bookSelected } from '../../store/actions';
 import { Book } from '../../models/book.model';
+import * as fromBooks from '../../store/reducers';
 
-import * as fromBooks from '../../store/reducers/books.reducers';
-
-import { selectAllBooks } from '../../store/selectors/books.selectors';
+import { selectAllBooks } from '../../store/selectors';
 
 @Component({
   selector: 'app-book-summary-container',
@@ -23,5 +23,10 @@ export class BookSummaryContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadRequest());
+  }
+
+  onBookSelected(book: Book) {
+    console.log('Book seleced in container: ' + book.title);
+    this.store.dispatch(bookSelected({ bookId: book.id }));
   }
 }

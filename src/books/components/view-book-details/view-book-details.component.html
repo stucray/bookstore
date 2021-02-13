@@ -1,1 +1,7 @@
-<h2 class="book-title">Book Title</h2>
+<h3>Book Details Component</h3>
+
+<h2 *ngIf="book" class="book-title">
+  {{ book.title }}
+</h2>
+
+<h2 *ngIf="!book">No book</h2>

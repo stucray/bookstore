@@ -7,11 +7,15 @@
 
   background-color: rgba(210, 210, 210, 0.2);
   border-radius: 5px;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
   align-content: flex-start;
 
   grid-template-columns: 100px 1fr;
   grid-template-rows: 100px auto;
+}
+
+.book-summary-item:hover {
+  background-color: rgba(210, 210, 210, 0.5);
 }
 
 .book-item-thumbnail {

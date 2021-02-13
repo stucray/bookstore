@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../../models/book.model';
 
 @Component({
@@ -8,4 +8,12 @@ import { Book } from '../../models/book.model';
 })
 export class BookSummaryListComponent {
   @Input() books!: Book[] | null;
+
+  //Output and event handler to pass book selected event up the chain.
+  @Output() bookSelectedEvent: EventEmitter<Book> = new EventEmitter<Book>();
+
+  onBookSelected(selectedBook: Book) {
+    console.log('Book selected in summary list: ' + selectedBook.title);
+    this.bookSelectedEvent.emit(selectedBook);
+  }
 }
