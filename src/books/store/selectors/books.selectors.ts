@@ -6,6 +6,7 @@ import * as fromBooks from '../reducers/';
 import { Observable } from 'rxjs';
 import { Dictionary } from '@ngrx/entity';
 import { ɵangular_packages_router_router_b } from '@angular/router';
+import { setTestabilityGetter } from '@angular/core';
 
 export const { selectAll, selectEntities } = fromBooks.adapter.getSelectors();
 
@@ -21,11 +22,8 @@ export const selectBookEntities = createSelector(
 export const selectAllBooks = createSelector(selectBookState, selectAll);
 
 export const getSelectedBook = createSelector(
-  selectBookEntities,
-  fromRoot.getRouterState,
-  (bookEntities: Dictionary<Book>, router) => {
-    return bookEntities[router.state.params.bookId] as Book;
-  }
+  selectBookState,
+  (state) => state.selectedBook
 );
 
 export const selectLoading = (state: fromBooks.State) => state.loading;

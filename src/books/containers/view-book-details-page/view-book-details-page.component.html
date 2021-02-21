@@ -1,3 +1,5 @@
 <h2>Book Details Container</h2>
 
-<app-view-book-details [book]="book$ | async"></app-view-book-details>
+<div *ngIf="book$">
+  <app-view-book-details [book]="book$ | async"></app-view-book-details>
+</div>

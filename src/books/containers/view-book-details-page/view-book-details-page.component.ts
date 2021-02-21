@@ -12,7 +12,7 @@ import { getSelectedBook } from '../../store/selectors';
   styleUrls: ['./view-book-details-page.component.scss'],
 })
 export class ViewBookDetailsPageComponent implements OnInit {
-  book$: Observable<Book>;
+  book$: Observable<Book | null>;
 
   constructor(private store: Store<fromBooks.State>) {
     this.book$ = store.select(getSelectedBook);

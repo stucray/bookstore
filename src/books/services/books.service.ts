@@ -18,4 +18,9 @@ export class BookService {
     console.log('BookService: getAllBooks()');
     return this.http.get<Book[]>(this.booksUrl);
   }
+
+  getBook(id: string): Observable<Book> {
+    console.log('BookService: getBook() id: ' + id);
+    return this.http.get<Book>(this.booksUrl + '/' + id);
+  }
 }

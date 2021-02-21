@@ -8,7 +8,17 @@ export const loadSuccess = createAction(
   props<{ books: Book[] }>()
 );
 
+export const loadBookRequest = createAction(
+  '[Book] Load Book Request',
+  props<{ bookId: string }>()
+);
+
+export const loadBookSuccess = createAction(
+  '[Book] Load Book Request',
+  props<{ book: Book }>()
+);
+
 export const bookSelected = createAction(
   '[Book] Book Selected',
-  props<{ bookId: string }>()
+  props<{ book: Book }>()
 );

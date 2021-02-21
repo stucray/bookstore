@@ -21,12 +21,10 @@ export class BookSummaryContainerComponent implements OnInit {
     this.books$ = store.select(selectAllBooks);
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(loadRequest());
-  }
+  ngOnInit(): void {}
 
   onBookSelected(book: Book) {
     console.log('Book seleced in container: ' + book.title);
-    this.store.dispatch(bookSelected({ bookId: book.id }));
+    this.store.dispatch(bookSelected({ book: book }));
   }
 }

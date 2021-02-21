@@ -1,0 +1,26 @@
+//All application wide variables.
+
+/// Standard font families.
+$text-font-stack: "Roboto", sans-serif !default;
+
+$code-font-stack: "Courier New", Courier, monospace !default;
+
+//Colors
+$bg-color: white;
+$text-color: rgb(14, 14, 14);
+
+$text-letter-spacing: 0.4px !default;
+$text-line-height: 1.2em !default;
+
+//Media query breakpoints
+$breakpoints: (
+  "small": (
+    min-width: 800px,
+  ),
+  "medium": (
+    min-width: 1000px,
+  ),
+  "large": (
+    min-width: 1200px,
+  ),
+);
