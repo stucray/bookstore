@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class BookService {
-  booksUrl = 'http://localhost:8080/books';
+  booksUrl = 'http://euclid:8080/books';
 
   constructor(private http: HttpClient) {}
 
