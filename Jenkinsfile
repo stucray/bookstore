@@ -22,6 +22,12 @@ pipeline{
                    '''
             }
         }
+
+        stage("Deploy") {
+            steps {
+                sh 'scp -r dist scray@euler:/var/www/html';
+            }
+        }
     }
 
 
