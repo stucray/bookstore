@@ -8,7 +8,7 @@ pipeline{
     //Initialise system
     stages{
         stage("Init"){
-            steps{
+            steps {
                 sh 'npm install -g @angular/cli@11.0.7';
                 sh 'npm install';
 
@@ -18,7 +18,7 @@ pipeline{
         stage("Build") {
             steps {
                 sh '''#!/bin/bash
-                   ng build --prod
+                   npm run build
                    '''
             }
         }
