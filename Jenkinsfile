@@ -1,17 +1,16 @@
-pipeline{
-    agent any
+pipeline {
+    agent any 
 
     tools {
         nodejs 'nodejs'
     }
 
     //Initialise system
-    stages{
-        stage("Init"){
+    stages {
+        stage("Init") {
             steps {
                 sh 'npm install -g @angular/cli@11.0.7';
                 sh 'npm install';
-
             }
         }
 
@@ -25,7 +24,7 @@ pipeline{
 
         stage("Deploy") {
             steps {
-                sh 'scp -r dist scray@euler:/var/www/html';
+                sh 'scp -r dist/* scray@euler:/var/www/html';
             }
         }
     }
@@ -34,6 +33,7 @@ pipeline{
     post{
       always {
         cleanWs()
+      }
     }
-  }
+  
 }
