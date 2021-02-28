@@ -18,7 +18,7 @@ pipeline{
         stage("Build") {
             steps {
                 sh '''#!/bin/bash
-                   npm run build
+                   ng build --prod
                    '''
             }
         }
