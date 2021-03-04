@@ -37,7 +37,7 @@
               "includePaths": [
                 "src/styles"
               ]
-           },
+            },
             "scripts": []
           },
           "configurations": {
@@ -87,7 +87,6 @@
             "browserTarget": "bookstore:build"
           }
         },
-   
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
