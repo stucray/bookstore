@@ -6,13 +6,17 @@ import { BookSummaryContainerComponent } from './containers/book-summary-contain
 import { ViewBookDetailsPageComponent } from './containers/view-book-details-page/view-book-details-page.component';
 import { BookDetailsStoreGuard } from './guards/book-details-store.guard';
 import { BooksStoreGuard } from './guards/books-store.guard';
+import { AuthGuard } from '@stucray/angular-oauth';
 // import { BookDetailsStoreGuard, BooksStoreGuard } from './guards';
 
 const bookRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'books',
-    canActivate: [BooksStoreGuard],
+    canActivate: [AuthGuard, BooksStoreGuard],
+    data: {
+      requiredRoles: ['USER', 'ADMIN'],
+    },
     component: BookSummaryContainerComponent,
   },
   {

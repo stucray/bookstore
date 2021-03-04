@@ -2,7 +2,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY, pipe } from 'rxjs';
-import { map, mergeMap, switchMap, catchError, tap } from 'rxjs/operators';
+import {
+  map,
+  mergeMap,
+  exhaustMap,
+  switchMap,
+  catchError,
+  tap,
+} from 'rxjs/operators';
 import { Book } from '../../models/book.model';
 import { BookService } from '../../services/books.service';
 import * as BookActions from '../actions/books.actions';
@@ -18,7 +25,7 @@ export class BookEffects {
   loadBooks$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BookActions.loadRequest),
-      mergeMap(() =>
+      exhaustMap(() =>
         this.bookService.getAllBooks().pipe(
           map((books: Book[]) => BookActions.loadSuccess({ books })),
           catchError(() => EMPTY)

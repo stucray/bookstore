@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { reducers } from './store';
 import { CustomSerializer } from './store/reducers/custom-route-serializer';
+import { AngularOauthModule } from '@stucray/angular-oauth';
 
 @NgModule({
   declarations: [AppComponent, MainHeaderComponent, NavbarComponent],
@@ -23,13 +24,18 @@ import { CustomSerializer } from './store/reducers/custom-route-serializer';
     AppRoutingModule,
 
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer,
+    }),
+    AngularOauthModule.forRoot({
+      clientId: 'bookstore',
+      issuerUrl: 'http://euler:8080/auth/realms',
+      resourceServers: ['http://euclid'],
     }),
   ],
   providers: [],

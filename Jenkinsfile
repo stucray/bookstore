@@ -6,7 +6,7 @@ pipeline {
     }
 
     //Initialise system
-    stages {
+     stages {
         stage("Init") {
             steps {
                 sh 'npm install -g @angular/cli@11.0.7';
@@ -22,9 +22,15 @@ pipeline {
             }
         }
 
+        stage("Test") {
+            steps {
+                echo 'Testing...';
+            }
+        }
+
         stage("Deploy") {
             steps {
-                sh 'scp -r dist/* scray@euler:/var/www/html';
+                sh "scp -r dist/* scray@euler:/var/www/html";
             }
         }
     }
